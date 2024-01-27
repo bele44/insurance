@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const apiService = axios.create({
-  baseURL: 'http://157.175.203.69:8193/api/medicalinsurance', 
+  baseURL: 'url', 
    
 });
 

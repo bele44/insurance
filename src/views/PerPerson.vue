@@ -264,7 +264,7 @@ export default {
   this.postData.benefit = totalBenefit;
   this.postData.premium = totalPremium;
  console.log('postData',this.postData)
-  axios.post('http://157.175.203.69:8193/api/medicalinsurance/individualbenefit', this.postData)
+  axios.post('url', this.postData)
     .then(response => {
       console.log('Data submitted successfully!', response.data);
       localStorage.setItem('benefitUuid', response.data.individualBenefitUuid);
