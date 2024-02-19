@@ -1,10 +1,11 @@
 <template>
-  <div class="flex justify-between items-center bg-gray-800 text-white fixed top-0 left-0 right-0 z-50">
+  <div class="flex justify-between items-center font-serif bg-blue-950 text-white fixed top-0 left-0 right-0 z-50">
     <!-- Left side: Family -->
     <div class="flex items-center">
       
-      <i class="fas fa-ambulance text-2xl ml-10"></i>
-      <p class="font-bold text-2xl ml-10">Welcome To Medical Insurance</p>
+      
+      <img src="../assets/logo.png" alt="" class="" />
+      
     </div>
 
     <!-- Middle section: Packages -->
@@ -12,20 +13,24 @@
       
 
       <!-- Package Panel Toggle Button -->
-      <button @click="togglePackagePanel" class="icon-button ml-4">
-        <i class="fas fa-layer-group text-2xl"></i>
+      <button @click="togglePackagePanel" class="icon-button flex  ">
+        
+        <div class="grid grid-cols-2 lg:p-0"><p class="text-white text-xl ">Item</p>
+        <i class="fas fa-layer-group text-xl md:p-5 lg:p-0"></i>
+      </div>
       </button>
     </div>
 
    
 
     <!-- Package Panel -->
-    <div v-if="isPackagePanelOpen" class="package-panel">
+    <div v-if="isPackagePanelOpen" class="package-panel font-serif bg-gray-800">
       <!-- Health Insurance -->
+      
       <router-link to="/health-insurance" class="cursor-pointer">
         <div class="column">
           <i class="fas fa-heart text-2xl"></i>
-          <p class="text-sm">Health Insurance</p>
+          <p class="text-sm">Car Insurance</p>
         </div>
         <div class="column">
           <i class="fas fa-heart text-2xl"></i>
@@ -41,7 +46,7 @@
       <router-link to="/medical-insurance" class="cursor-pointer">
         <div class="column">
           <i class="fas fa-hospital text-2xl"></i>
-          <p class="text-sm">Medical Insurance</p>
+          <p class="text-sm">Mobile Insurance</p>
         </div>
         <div class="column">
           <i class="fas fa-hospital text-2xl"></i>
@@ -69,7 +74,9 @@
         </div>
       </router-link>
     </div>
-
+    
+    <div class="mr-auto"> <TypeHealth /> </div>
+  
     <!-- Right Header Component -->
     <div class="lg:ml-auto"><RightHeader/></div>
      <!-- Help Dialog Content -->
@@ -78,7 +85,7 @@
       </button>
      <div v-if="isHelpDialogOpen" class="help-dialog">
       <p>Have Questions?</p>
-      <p>Email: bele@example.com</p>
+      <p>Email: nyalainsurance@gmail.com</p>
       <p>Phone: +251909356347</p>
       <button @click="closeHelpDialog" class="bg-black text-white p-1">Close</button>
     </div>
@@ -87,11 +94,13 @@
 
 <script>
 import RightHeader from './RightHeader.vue';
-
+import TypeHealth from './TypeHealth.vue';
 export default {
   name: 'MyHeader',
   components: {
     RightHeader,
+ TypeHealth 
+
   },
   data() {
     return {

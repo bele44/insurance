@@ -1,7 +1,7 @@
 <template>
-  <div class="nav items-center grid grid-cols-1 md:grid-cols-2 md:gap-4 p-2">
-    <router-link to="/">Login</router-link>
-    <SignupDialog />
+  <div class=" items-center grid grid-cols-1 md:grid-cols-2 md:gap-4 p-2">
+    <router-link to="/login" class=" font-serif text-xl hover:bg-gray-500  rounded-lg pt-2 pb-2 pl-2">Login</router-link>
+    <SignupDialog class="text-xl" />
     <!-- <a v-on:click="logout" href="#"></a> -->
   </div>
 </template>
@@ -28,15 +28,7 @@ export default {
   overflow: hidden;
 }
 
-.nav a {
-  display: block; /* Display as block to occupy full width */
-  color: #f2f2f2f2;
-  padding: 15px 20px; /* Adjusted padding for better spacing */
-  text-align: center;
-  font-size: 17px;
-  text-decoration: none;
-  margin-bottom: 5px; /* Add margin-bottom to create separation */
-}
+
 
 .nav a:hover {
   background: #ddd;

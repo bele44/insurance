@@ -1,6 +1,6 @@
 
 <template>
-    <MyHeader/>
+    <LoginHeader/>
     <div  class="container pt-24 bg-image">
       
       <div class="login">
@@ -18,14 +18,14 @@
  
  import axios from 'axios';
   import router from '../router';
-  import MyHeader from '../components/MyHeader.vue';
+  import LoginHeader from '../components/LoginHeader.vue';
 
   import MedicalFooter from "../components/MedicalFooter.vue";
   
   export default {
     name: 'MyLogin',
     components:{
-    MyHeader,
+    LoginHeader,
     MedicalFooter
     
 },
@@ -44,7 +44,7 @@
   this.$router.push('/person');
   // try {
     
-  //   let result = await axios.get(`http://localhost:3000/account?email=${this.email}&password=${this.password}`);
+  //   let result = await axios.get(`http://account?email=${this.email}&password=${this.password}`);
   //   if (result.status === 200 && result.data.length > 0) {
   //     localStorage.setItem("user-info", JSON.stringify(result.data[0]));
   //     router.push({ name: 'PerPerson' });

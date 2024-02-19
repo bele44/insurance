@@ -1,19 +1,17 @@
 <template>
-  <div class="sm:pt-28 lg:pt-2">
-    <h1 class="text-black text-2xl font-bold ml-2">Select cover</h1>
+  <div class="sm:pt- lg:pt-2">
     <div class="flex justify-start text-white">
-      <div class="mt-6 flex items-center">
-        <div class="grid grid-cols-1 md:grid-cols-2">
-          <label class="radio-container m-2">
-            <input type="radio" v-model="selectedOption" value="perPerson" @change="handleOptionChange" />
-            <span class="checkmark"></span>
-            <h1 class="text-black text-lg font-bold">Individual Cover</h1>
-          </label>
-          <label class="radio-container m-2">
-            <input type="radio" v-model="selectedOption" value="perFamily" @change="handleOptionChange" />
-            <span class="checkmark"></span>
-            <h1 class="text-black text-lg font-bold">Family Cover</h1>
-          </label>
+      <div class="flex items-center">
+        <div class="dropdown">
+          <div class="dropdown-toggle" @click="toggleDropdown">
+            <span class="selected-option text-xl font-serif">{{ selectedOption ? selectedOption : 'Medical Covers' }}</span>
+            <div class="arrow-down"></div>
+          </div>
+
+          <div v-show="isDropdownOpen" class="dropdown-options show font-serif">
+            <div @click="selectOption('perPerson')" >Individual Cover</div>
+            <div @click="selectOption('perFamily')">Family Cover</div>
+          </div>
         </div>
       </div>
     </div>
@@ -26,14 +24,19 @@ export default {
   data() {
     return {
       selectedOption: '',
+      isDropdownOpen: false,
     };
   },
-  watch: {
-    selectedOption(newOption) {
+  methods: {
+    toggleDropdown() {
+      console.log('Dropdown toggled');
+      this.isDropdownOpen = !this.isDropdownOpen;
+    },
+    selectOption(option) {
+      this.selectedOption = option;
+      this.isDropdownOpen = false;
       this.handleOptionChange();
     },
-  },
-  methods: {
     handleOptionChange() {
       if (this.selectedOption === 'perPerson') {
         this.$router.push({ name: 'PerPerson' });
@@ -46,54 +49,55 @@ export default {
 </script>
 
 <style scoped>
-.radio-container {
+/* Dropdown Styles */
+.dropdown {
+  margin-left: 10px;
   position: relative;
-  display: block;
-  padding-left: 35px;
-  margin-bottom: 15px;
+  width: 200px;
+}
+
+.dropdown-toggle {
+  padding: 10px;
   cursor: pointer;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+  position: absolute;
+  top: 50%;
+  left: calc(100% - 50px); 
+  transform: translateY(-50%);
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+  background-color: #fff;
+}
+
+.dropdown-options.show {
+  display: block;
+}
+
+.dropdown-options div {
+  padding: 10px;
+  cursor: pointer;
   color: black;
 }
 
-.radio-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border: 2px solid #2196f3; /* Change border color */
-  border-radius: 50%;
-}
-
-.radio-container:hover input ~ .checkmark {
-  background-color: #f3f3f3;
-}
-
-.radio-container input:checked ~ .checkmark {
-  background-color: #2196f3;
-}
-
-.checkmark:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-}
-
-.radio-container input:checked ~ .checkmark:after {
-  content: '\2713'; /* Checkmark character */
-  color: #fff;
-  font-size: 14px;
+.dropdown-options div:hover {
+  background-color: blue;
 }
 </style>
-

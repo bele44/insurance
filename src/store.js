@@ -1,14 +1,15 @@
+// store.js
+
 import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    individualBenefitUuid: null,
     postData: {
       firstName: "",
       fatherName: "",
       grandFatherName: "",
       dateOfBirth: "",
-      gender: "male",
+      gender: "",
       phoneNumber: "",
       covers: [],
       benefit: 0,
@@ -16,11 +17,16 @@ export default createStore({
     },
   },
   mutations: {
-    setIndividualBenefitUuid(state, uuid) {
-      state.individualBenefitUuid = uuid;
+    updatePostData(state, newData) {
+      
+      Object.assign(state.postData, newData);
     },
   },
+  actions: {
+    
+  },
 });
+
 
 
 
