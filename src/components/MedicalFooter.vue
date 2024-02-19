@@ -1,6 +1,6 @@
 <!-- MedicalFooter.vue -->
 <template>
-    <footer class="bg-gray-800 text-white py-4 text-center">
+    <footer class="  bg-gray-800 text-white py-4 text-center ">
       <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0">
   
         <!-- Footer information -->
@@ -48,6 +48,6 @@
   </script>
   
   <style scoped>
-  /* Add your styles specific to the footer here */
+ 
   </style>
   

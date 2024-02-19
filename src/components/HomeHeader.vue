@@ -1,21 +1,23 @@
 <template>
-    <div class="flex justify-between items-center bg-gray-800 text-white fixed top-0 left-0 right-0 z-50 ">
+    <div class="flex justify-between items-center bg-blue-950 text-white fixed top-0 left-0 right-0 z-50 ">
       <!-- Left side: Family -->
       <div class="flex items-center">
-        <i class="fas fa-ambulance text-2xl ml-10"></i>
-        <p class="font-bold text-2xl ml-10"> Medical Insurance</p>
+        <img src="../assets/logo.png" alt="" class="" />
+       
+      
       </div>
   
       <!-- Middle section: Packages -->
       <div class="flex items-center">
         
   
-        <!-- Package Panel Toggle Button -->
-        <button @click="togglePackagePanel" class="icon-button ml-4">
-          <i class="fas fa-layer-group text-2xl"></i>
-        </button>
+        <button @click="togglePackagePanel" class="icon-button flex  ">
+        
+        <div class="grid grid-cols-2 lg:p-0 font-serif"><p class="text-white text-xl ">Items</p>
+        <i class="fas fa-layer-group text-2xl md:p-5 lg:p-0"></i>
       </div>
-  
+      </button>
+    </div>
      
   
       <!-- Package Panel -->
@@ -77,7 +79,7 @@
         </button>
        <div v-if="isHelpDialogOpen" class="help-dialog">
         <p>Have Questions?</p>
-        <p>Email: bele@example.com</p>
+        <p>Email: nyalainsurance@gmail.com</p>
         <p>Phone: +251909356347</p>
         <button @click="closeHelpDialog" class="bg-black text-white p-1">Close</button>
       </div>
@@ -154,35 +156,6 @@
   .package-panel .column:hover {
     background-color: #4a4a4a;
   }
-  @media only screen and (max-width: 768px) {
-    .flex {
-      flex-direction: column; /* Stack items vertically on smaller screens */
-    }
-  
-    .ml-auto {
-      margin-left: auto; /* Align the RightHeader to the right on smaller screens */
-    }
-  
-    .icon-button {
-      margin: 1rem 0; /* Adjust margin for smaller screens */
-    }
-  
-    .help-dialog,
-    .package-panel {
-      left: 50%; /* Center the dialogs horizontally on smaller screens */
-    }
-  
-    .help-dialog {
-      top: 70px; /* Adjust top position for smaller screens */
-    }
-  
-    .package-panel {
-      top: 120px; /* Adjust top position for smaller screens */
-    }
-  
-    .package-panel .column {
-      padding: 0.5rem; /* Adjust padding for smaller screens */
-    }
-  }
+ 
   </style>
   

@@ -1,7 +1,7 @@
 <template>
     <div>
       <!-- Button to open the signup dialog -->
-      <button @click="openSignupDialog" class="hover:bg-slate-500 text-white px-4 py-2 rounded">Signup</button>
+      <button @click="openSignupDialog" class="hover:bg-slate-500 text-white px-4 py-2 rounded font-serif ">Signup</button>
   
       <!-- Signup dialog overlay -->
       <div v-if="isSignupDialogOpen" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -16,9 +16,9 @@
             <input type="text" v-model="username" id="username" class="w-full px-3 py-2 border rounded mb-4" required>
   
             <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password:</label>
-            <input type="password" v-model="password" id="password" class="w-full px-3 py-2 border rounded mb-4" required>
+            <input type="password" v-model="password" id="password" class="w-full px-3 py-2 border rounded mb-4 text-black" required>
             <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">Confirm Password:</label>
-          <input type="password" v-model="confirmPassword" id="confirmPassword" class="w-full px-3 py-2 border rounded mb-4" required>
+          <input type="password" v-model="confirmPassword" id="confirmPassword" class="w-full px-3 py-2 border rounded mb-4 text-black" required>
 
             
   
